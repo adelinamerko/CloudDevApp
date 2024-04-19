@@ -16,7 +16,7 @@ jobs:
       - name: Build with Maven
         run: mvn -B package --file pom.xml
       - name: Copy JAR to Docker context
-        run: cp CloudDevApp/target/*.jar .
+        run: cp CloudDevApp/*.jar .
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v1
         with:
