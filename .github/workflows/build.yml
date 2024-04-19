@@ -1,7 +1,7 @@
 name: Java CI with Maven
 on:
   push:
-    branches: ['main']
+    branches: ['master']
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,17 +14,18 @@ jobs:
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn -B package --file 'devops-labs-master/pom.xml'
+        run: mvn -B package --file pom.xml
       - name: Copy JAR to Docker context
-        run: cp devops-labs-master/target/*.jar .
+        run: cp CloudDevApp/target/*.jar .
       - name: Publish to Docker Hub
         uses: docker/build-push-action@v1
         with:
-          context: ./devops-labs-master/
-          dockerfile: 'devops-labs-master/Dockerfile'
+          context: .
+          dockerfile: 'CloudDevApp/Dockerfile'
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           repository: adelinamerko/cloud-dev-app
           tag_with_ref: true
+   #executed build maven
 
-        #executed build maven
+
