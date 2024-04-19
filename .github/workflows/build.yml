@@ -23,6 +23,8 @@ jobs:
         with:
           context: .
           dockerfile: Dockerfile
+
+          #Added Docker_Hub_Username  and Docker_Hub_Password
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
