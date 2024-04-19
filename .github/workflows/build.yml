@@ -20,7 +20,7 @@ jobs:
         uses: docker/build-push-action@v1
         with:
           context: .
-          dockerfile: CloudDevApp/Dockerfile
+          dockerfile: Dockerfile
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
           repository: adelinamerko/cloud-dev-app
